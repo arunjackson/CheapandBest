@@ -168,6 +168,47 @@
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
         
+        /* Home Button */
+        .home-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid var(--primary);
+        }
+        
+        .home-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(248, 165, 194, 0.3);
+        }
+        
+        .home-button.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-20px);
+        }
+        
+        .home-button.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+        
         /* Step 1: Brand Landing */
         .brand-landing {
             min-height: 100vh;
@@ -718,6 +759,14 @@
             .interest-options {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .home-button {
+                top: 20px;
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -751,6 +800,14 @@
             
             .badge-number {
                 font-size: 2rem;
+            }
+            
+            .home-button {
+                top: 15px;
+                left: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
             }
         }
         
@@ -820,6 +877,11 @@
     </style>
 </head>
 <body>
+    <!-- Home Button (Top Left) -->
+    <div id="homeButton" class="home-button hidden">
+        <i class="fas fa-home"></i>
+    </div>
+
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/916361711846?text=Hi%20CHEAP%20%26%20BEST%20Salon%2C%20I'm%20interested%20in%20your%20services" 
        target="_blank" 
@@ -968,9 +1030,14 @@
                 </div>
             </div>
             
-            <button id="backToHome" class="btn" style="background: var(--gray); color: var(--dark); margin-top: 2rem;">
-                <i class="fas fa-arrow-left"></i> Back to Home
-            </button>
+            <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem;">
+                <button id="backToHomeFromInterest" class="btn" style="background: var(--gray); color: var(--dark);">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button id="whatsappQuickInterest" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Quick Help
+                </button>
+            </div>
         </div>
     </div>
 
@@ -991,7 +1058,7 @@
             
             <div style="text-align: center;">
                 <button id="backToInterests" class="btn" style="background: var(--gray); color: var(--dark); margin-right: 1rem;">
-                    <i class="fas fa-arrow-left"></i> Choose Different Category
+                    <i class="fas fa-arrow-left"></i> Back to Categories
                 </button>
                 
                 <button id="whatsappConsult" class="btn btn-whatsapp">
@@ -1092,8 +1159,8 @@
     </div>
 
     <script>
-        // WhatsApp Number - REPLACE THIS WITH ACTUAL NUMBER
-        const WHATSAPP_NUMBER = "916361711846"; // Format: country code + number (no + sign)
+        // WhatsApp Number
+        const WHATSAPP_NUMBER = "916361711846";
         
         // State Management
         let currentStep = 1;
@@ -1298,6 +1365,12 @@
         const progressSteps = document.getElementById('progressSteps');
         const stepCircles = document.querySelectorAll('.step-circle');
         const whatsappDirectBtn = document.getElementById('whatsappDirect');
+        const homeButton = document.getElementById('homeButton');
+        
+        // Home Button Functionality
+        homeButton.addEventListener('click', function() {
+            goToStep(1);
+        });
         
         // Step 1: Explore Services
         document.getElementById('exploreServices').addEventListener('click', function() {
@@ -1314,8 +1387,14 @@
         });
         
         // Back to Home from Interest Selection
-        document.getElementById('backToHome').addEventListener('click', function() {
+        document.getElementById('backToHomeFromInterest').addEventListener('click', function() {
             goToStep(1);
+        });
+        
+        // WhatsApp Quick Help from Interest Selection
+        document.getElementById('whatsappQuickInterest').addEventListener('click', function() {
+            const message = `Hi CHEAP & BEST Salon, I need help choosing a service category. Can you guide me?`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         });
         
         // Step 3: Load Services
@@ -1449,6 +1528,11 @@
             
             // Show success message
             alert('Opening WhatsApp... Please send the pre-filled message to confirm your booking!');
+            
+            // Return to home after booking
+            setTimeout(() => {
+                goToStep(1);
+            }, 3000);
         });
         
         // Navigation Function
@@ -1458,6 +1542,15 @@
             
             // Show selected step
             document.getElementById(`step${stepNumber}`).classList.add('active');
+            
+            // Update home button visibility
+            if (stepNumber === 1) {
+                homeButton.classList.remove('visible');
+                homeButton.classList.add('hidden');
+            } else {
+                homeButton.classList.remove('hidden');
+                homeButton.classList.add('visible');
+            }
             
             // Update progress steps
             if (stepNumber > 1) {
