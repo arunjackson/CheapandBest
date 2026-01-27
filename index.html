@@ -44,6 +44,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--light);
+            padding-top: 70px; /* Space for floating nav */
         }
         
         h1, h2, h3, h4 {
@@ -142,6 +143,68 @@
             color: var(--dark);
         }
         
+        /* Floating Navigation Bar */
+        .floating-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1002;
+            min-width: 300px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .nav-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light);
+            color: var(--primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid transparent;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(248, 165, 194, 0.3);
+        }
+        
+        .nav-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: white;
+            box-shadow: 0 0 0 3px rgba(248, 165, 194, 0.3);
+        }
+        
+        .nav-divider {
+            width: 1px;
+            height: 30px;
+            background: var(--gray);
+        }
+        
+        .nav-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+        
         /* Floating WhatsApp Button */
         .floating-whatsapp {
             position: fixed;
@@ -168,45 +231,42 @@
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
         
-        /* Home Button */
-        .home-button {
+        /* Back Button (Top Left) */
+        .back-button-top {
             position: fixed;
-            top: 30px;
-            left: 30px;
-            width: 60px;
-            height: 60px;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             z-index: 1001;
             transition: all 0.3s ease;
             text-decoration: none;
             cursor: pointer;
             border: 2px solid var(--primary);
-        }
-        
-        .home-button:hover {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(248, 165, 194, 0.3);
-        }
-        
-        .home-button.hidden {
             opacity: 0;
             visibility: hidden;
             transform: translateX(-20px);
         }
         
-        .home-button.visible {
+        .back-button-top.visible {
             opacity: 1;
             visibility: visible;
             transform: translateX(0);
+        }
+        
+        .back-button-top:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(248, 165, 194, 0.3);
         }
         
         /* Step 1: Brand Landing */
@@ -221,6 +281,7 @@
             text-align: center;
             padding: 2rem;
             color: white;
+            margin-top: -70px; /* Compensate for body padding */
         }
         
         .brand-content {
@@ -746,6 +807,32 @@
             z-index: 1;
         }
         
+        /* WhatsApp Direct Button */
+        .whatsapp-direct {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            max-width: 200px;
+            animation: slideInRight 0.5s ease;
+        }
+        
+        .whatsapp-direct:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+        }
+        
         /* Mobile Responsive */
         @media (max-width: 992px) {
             h1 {
@@ -760,12 +847,19 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .home-button {
-                top: 20px;
-                left: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
+            .floating-nav {
+                min-width: 280px;
+                padding: 0.7rem 1.2rem;
+            }
+            
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .nav-label {
+                font-size: 1rem;
             }
         }
         
@@ -802,12 +896,36 @@
                 font-size: 2rem;
             }
             
-            .home-button {
+            .floating-nav {
+                top: 15px;
+                min-width: 250px;
+                padding: 0.6rem 1rem;
+            }
+            
+            .nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .nav-label {
+                font-size: 0.9rem;
+            }
+            
+            .back-button-top {
                 top: 15px;
                 left: 15px;
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            body {
+                padding-top: 60px;
+            }
+            
+            .brand-landing {
+                margin-top: -60px;
             }
         }
         
@@ -828,42 +946,6 @@
             100% { transform: scale(1); }
         }
         
-        /* Show/Hide steps */
-        .step-container {
-            display: none;
-        }
-        
-        .step-container.active {
-            display: flex;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        /* WhatsApp Direct Button */
-        .whatsapp-direct {
-            position: fixed;
-            bottom: 110px;
-            right: 30px;
-            background: var(--whatsapp);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            max-width: 200px;
-            animation: slideInRight 0.5s ease;
-        }
-        
-        .whatsapp-direct:hover {
-            background: #1da851;
-            transform: translateY(-3px);
-        }
-        
         @keyframes slideInRight {
             from {
                 opacity: 0;
@@ -874,12 +956,79 @@
                 transform: translateX(0);
             }
         }
+        
+        /* Show/Hide steps */
+        .step-container {
+            display: none;
+        }
+        
+        .step-container.active {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Current Step Indicator */
+        .current-step-indicator {
+            position: fixed;
+            top: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(248, 165, 194, 0.3);
+            white-space: nowrap;
+        }
+        
+        .current-step-indicator.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        
+        .current-step-indicator.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
     </style>
 </head>
 <body>
-    <!-- Home Button (Top Left) -->
-    <div id="homeButton" class="home-button hidden">
-        <i class="fas fa-home"></i>
+    <!-- Back Button (Top Left) -->
+    <div id="backButton" class="back-button-top">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+    
+    <!-- Current Step Indicator -->
+    <div id="stepIndicator" class="current-step-indicator hidden">
+        Step 1: Choose Your Interest
+    </div>
+
+    <!-- Floating Navigation Bar -->
+    <div class="floating-nav">
+        <div class="nav-btn" id="navHome" title="Home">
+            <i class="fas fa-home"></i>
+        </div>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-btn" id="navServices" title="Services">
+            <i class="fas fa-spa"></i>
+        </div>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-btn" id="navBook" title="Book Now">
+            <i class="fas fa-calendar-check"></i>
+        </div>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-label" id="navStatus">Home</div>
     </div>
 
     <!-- Floating WhatsApp Button -->
@@ -892,7 +1041,7 @@
 
     <!-- WhatsApp Direct Button (Appears after service selection) -->
     <a href="#" target="_blank" class="whatsapp-direct" id="whatsappDirect" style="display: none;">
-        <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
+        <i class="fab fa-whatsapp"></i> Book Now
     </a>
 
     <!-- Progress Steps -->
@@ -1167,6 +1316,22 @@
         let selectedInterest = '';
         let selectedService = {};
         
+        // Step Names for Navigation
+        const stepNames = {
+            1: "Home",
+            2: "Choose Interest",
+            3: "Select Service",
+            4: "Book Appointment"
+        };
+        
+        // Step Indicators
+        const stepIndicators = {
+            1: "Step 1: Home",
+            2: "Step 2: Choose Your Interest",
+            3: "Step 3: Select Service",
+            4: "Step 4: Book Appointment"
+        };
+        
         // Service Data
         const servicesData = {
             hair: [
@@ -1365,11 +1530,86 @@
         const progressSteps = document.getElementById('progressSteps');
         const stepCircles = document.querySelectorAll('.step-circle');
         const whatsappDirectBtn = document.getElementById('whatsappDirect');
-        const homeButton = document.getElementById('homeButton');
+        const backButton = document.getElementById('backButton');
+        const stepIndicator = document.getElementById('stepIndicator');
+        const navHome = document.getElementById('navHome');
+        const navServices = document.getElementById('navServices');
+        const navBook = document.getElementById('navBook');
+        const navStatus = document.getElementById('navStatus');
+        const navButtons = document.querySelectorAll('.nav-btn');
         
-        // Home Button Functionality
-        homeButton.addEventListener('click', function() {
+        // Update Navigation Active State
+        function updateNavigation() {
+            // Remove active class from all nav buttons
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class based on current step
+            if (currentStep === 1) {
+                navHome.classList.add('active');
+            } else if (currentStep === 2 || currentStep === 3) {
+                navServices.classList.add('active');
+            } else if (currentStep === 4) {
+                navBook.classList.add('active');
+            }
+            
+            // Update status text
+            navStatus.textContent = stepNames[currentStep];
+            
+            // Update step indicator
+            stepIndicator.textContent = stepIndicators[currentStep];
+            
+            // Show/hide step indicator
+            if (currentStep > 1) {
+                stepIndicator.classList.remove('hidden');
+                stepIndicator.classList.add('visible');
+            } else {
+                stepIndicator.classList.remove('visible');
+                stepIndicator.classList.add('hidden');
+            }
+            
+            // Show/hide back button
+            if (currentStep > 1) {
+                backButton.classList.add('visible');
+            } else {
+                backButton.classList.remove('visible');
+            }
+        }
+        
+        // Navigation Button Click Handlers
+        navHome.addEventListener('click', function() {
             goToStep(1);
+        });
+        
+        navServices.addEventListener('click', function() {
+            if (currentStep >= 2 && currentStep <= 3) {
+                // Already on services, do nothing
+            } else if (currentStep === 1) {
+                goToStep(2);
+            } else if (currentStep === 4) {
+                if (selectedInterest) {
+                    goToStep(3);
+                } else {
+                    goToStep(2);
+                }
+            }
+        });
+        
+        navBook.addEventListener('click', function() {
+            if (currentStep === 4) {
+                // Already on booking, do nothing
+            } else if (selectedService && selectedService.name) {
+                goToStep(4);
+            } else {
+                // If no service selected, go to interest selection
+                goToStep(2);
+            }
+        });
+        
+        // Back Button Functionality
+        backButton.addEventListener('click', function() {
+            if (currentStep > 1) {
+                goToStep(currentStep - 1);
+            }
         });
         
         // Step 1: Explore Services
@@ -1543,14 +1783,8 @@
             // Show selected step
             document.getElementById(`step${stepNumber}`).classList.add('active');
             
-            // Update home button visibility
-            if (stepNumber === 1) {
-                homeButton.classList.remove('visible');
-                homeButton.classList.add('hidden');
-            } else {
-                homeButton.classList.remove('hidden');
-                homeButton.classList.add('visible');
-            }
+            // Update navigation
+            updateNavigation();
             
             // Update progress steps
             if (stepNumber > 1) {
@@ -1610,6 +1844,9 @@
             document.querySelectorAll('a[href^="tel:"]').forEach(link => {
                 link.href = `tel:+${WHATSAPP_NUMBER}`;
             });
+            
+            // Initialize navigation
+            updateNavigation();
             
             // Track clicks for analytics
             document.querySelectorAll('a[href*="whatsapp"], .btn-whatsapp').forEach(btn => {
