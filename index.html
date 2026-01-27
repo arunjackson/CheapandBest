@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affordable Beauty Salon | Women's Hair, Skin & Bridal Services</title>
-    <meta name="description" content="Professional women's salon offering affordable hair, skin, bridal makeup & beauty services. Experienced staff, quality products, clean & hygienic salon.">
+    <title>CHEAP & BEST Women's Salon | Affordable Beauty Services</title>
+    <meta name="description" content="Professional women's salon offering affordable hair, skin, nail & bridal services. WhatsApp booking available. Best prices guaranteed.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +28,10 @@
             --text: #444444;
             --whatsapp: #25D366;
             --success: #4CAF50;
+            --hair: #8a4baf;
+            --skin: #ff9a9e;
+            --nails: #a29bfe;
+            --all: #ffd166;
         }
         
         html {
@@ -39,6 +43,7 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            background: var(--light);
         }
         
         h1, h2, h3, h4 {
@@ -50,35 +55,25 @@
         h1 {
             font-size: 3.5rem;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
         }
         
         h2 {
             font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             position: relative;
         }
         
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--primary);
-        }
-        
-        section {
-            padding: 5rem 2rem;
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
         }
         
         .btn {
@@ -92,6 +87,19 @@
             border: none;
             cursor: pointer;
             text-align: center;
+            min-width: 200px;
+        }
+        
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
         
         .btn-primary {
@@ -102,7 +110,6 @@
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(248, 165, 194, 0.3);
         }
         
         .btn-secondary {
@@ -115,23 +122,24 @@
             transform: translateY(-3px);
         }
         
-        .btn-whatsapp {
-            background: var(--whatsapp);
+        .btn-hair {
+            background: var(--hair);
             color: white;
         }
         
-        .btn-whatsapp:hover {
-            background: #1da851;
-            transform: translateY(-3px);
+        .btn-skin {
+            background: var(--skin);
+            color: white;
         }
         
-        .btn-accent {
-            background: var(--accent);
+        .btn-nails {
+            background: var(--nails);
+            color: white;
+        }
+        
+        .btn-all {
+            background: var(--all);
             color: var(--dark);
-        }
-        
-        .btn-accent:hover {
-            background: #ffc043;
         }
         
         /* Floating WhatsApp Button */
@@ -139,138 +147,251 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: var(--whatsapp);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2rem;
+            font-size: 2.5rem;
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
             z-index: 1000;
             transition: all 0.3s ease;
             text-decoration: none;
+            animation: pulse 2s infinite;
         }
         
         .floating-whatsapp:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
         
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+        /* Step 1: Brand Landing */
+        .brand-landing {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            color: white;
-            min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 2rem;
-            position: relative;
+            color: white;
         }
         
-        .hero-content {
+        .brand-content {
             max-width: 800px;
-            margin: 0 auto;
             animation: fadeIn 1s ease-out;
         }
         
-        .hero h1 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-subtitle {
+        .brand-tagline {
             font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            color: var(--light);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-transform: uppercase;
         }
         
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        
-        .cta-highlight {
+        .brand-highlight {
             background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 3rem;
-            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border-left: 5px solid var(--primary);
         }
         
-        /* About Section */
-        .about {
-            background: var(--light);
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
         }
         
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .badge {
+            text-align: center;
         }
         
-        .about-image {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
+        .badge-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
             display: block;
         }
         
-        .about-points {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .point {
+        /* Step 2: Interest Selection */
+        .interest-selection {
+            min-height: 100vh;
+            display: none;
+            align-items: center;
+            padding: 4rem 2rem;
             background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
         }
         
-        .point:hover {
-            transform: translateY(-5px);
+        .interest-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
         }
         
-        .point i {
-            color: var(--primary);
+        .interest-question {
             font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+        
+        .interest-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .interest-option {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-decoration: none;
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            cursor: pointer;
+        }
+        
+        .interest-option.hair {
+            border-color: var(--hair);
+        }
+        
+        .interest-option.skin {
+            border-color: var(--skin);
+        }
+        
+        .interest-option.nails {
+            border-color: var(--nails);
+        }
+        
+        .interest-option.all {
+            border-color: var(--all);
+        }
+        
+        .interest-option:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .interest-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .interest-icon.hair {
+            background: rgba(138, 75, 175, 0.1);
+            color: var(--hair);
+        }
+        
+        .interest-icon.skin {
+            background: rgba(255, 154, 158, 0.1);
+            color: var(--skin);
+        }
+        
+        .interest-icon.nails {
+            background: rgba(162, 155, 254, 0.1);
+            color: var(--nails);
+        }
+        
+        .interest-icon.all {
+            background: rgba(255, 209, 102, 0.1);
+            color: var(--all);
+        }
+        
+        .option-description {
+            color: var(--text);
+            margin: 1rem 0;
+        }
+        
+        .option-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .service-tag {
+            background: var(--gray);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        /* Step 3: Services Display */
+        .services-display {
+            min-height: 100vh;
+            display: none;
+            padding: 4rem 2rem;
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .services-header.hair {
+            background: linear-gradient(135deg, var(--hair), #6b3c8e);
+        }
+        
+        .services-header.skin {
+            background: linear-gradient(135deg, var(--skin), #ff7b81);
+        }
+        
+        .services-header.nails {
+            background: linear-gradient(135deg, var(--nails), #7c73e6);
+        }
+        
+        .services-header.all {
+            background: linear-gradient(135deg, var(--all), #ffb347);
+        }
+        
+        .services-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
             margin-bottom: 1rem;
         }
         
-        /* Services */
-        .services {
-            background: white;
+        .services-title i {
+            font-size: 2.5rem;
         }
         
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin: 3rem 0;
         }
         
         .service-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
@@ -282,236 +403,306 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
         
-        .service-icon {
-            height: 150px;
-            background: var(--light);
+        .service-card-header {
+            padding: 1.5rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--primary);
+            gap: 1rem;
         }
         
-        .service-content {
+        .service-card.hair .service-card-header {
+            background: rgba(138, 75, 175, 0.1);
+            border-bottom: 3px solid var(--hair);
+        }
+        
+        .service-card.skin .service-card-header {
+            background: rgba(255, 154, 158, 0.1);
+            border-bottom: 3px solid var(--skin);
+        }
+        
+        .service-card.nails .service-card-header {
+            background: rgba(162, 155, 254, 0.1);
+            border-bottom: 3px solid var(--nails);
+        }
+        
+        .service-card.all .service-card-header {
+            background: rgba(255, 209, 102, 0.1);
+            border-bottom: 3px solid var(--all);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+        }
+        
+        .service-card.hair .service-icon {
+            color: var(--hair);
+        }
+        
+        .service-card.skin .service-icon {
+            color: var(--skin);
+        }
+        
+        .service-card.nails .service-icon {
+            color: var(--nails);
+        }
+        
+        .service-card.all .service-icon {
+            color: var(--all);
+        }
+        
+        .service-card-content {
             padding: 1.5rem;
         }
         
         .service-price {
             color: var(--secondary);
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin: 0.5rem 0;
         }
         
-        .service-cta {
+        .service-duration {
+            color: var(--text);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .service-features li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .service-features li i {
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+        
+        .service-select-btn {
             display: block;
+            width: 100%;
+            padding: 1rem;
             text-align: center;
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background: var(--light);
-            color: var(--primary);
-            border-radius: 5px;
+            background: var(--gray);
+            color: var(--dark);
             text-decoration: none;
             font-weight: 600;
+            border-radius: 0 0 15px 15px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
         
-        .service-cta:hover {
-            background: var(--primary);
+        .service-card.hair .service-select-btn:hover {
+            background: var(--hair);
             color: white;
         }
         
-        /* Why Choose Us */
-        .why-us {
-            background: var(--gray);
+        .service-card.skin .service-select-btn:hover {
+            background: var(--skin);
+            color: white;
         }
         
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .service-card.nails .service-select-btn:hover {
+            background: var(--nails);
+            color: white;
         }
         
-        .benefit {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .service-card.all .service-select-btn:hover {
+            background: var(--all);
+            color: var(--dark);
         }
         
-        .benefit i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
+        .back-button {
+            display: inline-block;
             margin-top: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
         }
         
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            height: 250px;
-            position: relative;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        /* Booking */
-        .booking {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-        }
-        
-        .booking h2 {
-            color: white;
-        }
-        
-        .booking h2:after {
-            background: white;
+        /* Step 4: WhatsApp Booking Form */
+        .booking-form {
+            min-height: 100vh;
+            display: none;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: var(--light);
         }
         
         .booking-container {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .booking-header {
             padding: 3rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            text-align: center;
+            color: white;
+        }
+        
+        .booking-header.hair {
+            background: linear-gradient(135deg, var(--hair), #6b3c8e);
+        }
+        
+        .booking-header.skin {
+            background: linear-gradient(135deg, var(--skin), #ff7b81);
+        }
+        
+        .booking-header.nails {
+            background: linear-gradient(135deg, var(--nails), #7c73e6);
+        }
+        
+        .booking-header.all {
+            background: linear-gradient(135deg, var(--all), #ffb347);
+        }
+        
+        .selected-service-display {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .selected-service-display i {
+            font-size: 2rem;
+        }
+        
+        .booking-form-content {
+            padding: 3rem;
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--dark);
         }
         
         .form-control {
             width: 100%;
             padding: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--gray);
+            border-radius: 10px;
             font-size: 1rem;
             transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
         }
         
         .form-control:focus {
             outline: none;
-            border-color: white;
-            background: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(248, 165, 194, 0.2);
         }
         
-        .booking-options {
+        .form-actions {
             display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 3rem;
+            gap: 1rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
         
-        /* Contact */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            margin-top: 2rem;
+        .form-actions .btn {
+            flex: 1;
+            min-width: 200px;
         }
         
-        .contact-info {
+        .urgency-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .booking-alternatives {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 4rem;
+            position: relative;
+        }
+        
+        .step {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .contact-item {
-            display: flex;
             align-items: center;
-            gap: 1rem;
+            position: relative;
+            z-index: 2;
+            width: 100px;
         }
         
-        .contact-item i {
-            width: 50px;
-            height: 50px;
-            background: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .map-container {
-            height: 400px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        .step-circle {
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
+            background: var(--gray);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
             transition: all 0.3s ease;
+            border: 2px solid var(--gray);
         }
         
-        .social-icons a:hover {
+        .step-circle.active {
             background: var(--primary);
-            transform: translateY(-3px);
+            color: white;
+            border-color: var(--primary);
         }
         
-        .copyright {
+        .step-circle.completed {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+        
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 500;
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .step-line {
+            position: absolute;
+            top: 20px;
+            left: 70px;
+            right: 70px;
+            height: 2px;
+            background: var(--gray);
+            z-index: 1;
         }
         
         /* Mobile Responsive */
@@ -524,21 +715,12 @@
                 font-size: 2.2rem;
             }
             
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
+            .interest-options {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 768px) {
-            section {
-                padding: 3rem 1rem;
-            }
-            
             h1 {
                 font-size: 2.2rem;
             }
@@ -547,26 +729,28 @@
                 font-size: 1.8rem;
             }
             
-            .hero-buttons {
+            .interest-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
                 flex-direction: column;
-                align-items: center;
             }
             
             .btn {
                 width: 100%;
-                max-width: 300px;
             }
             
-            .about-points {
-                grid-template-columns: 1fr;
+            .trust-badges {
+                gap: 2rem;
             }
             
-            .booking-container {
-                padding: 2rem 1.5rem;
-            }
-            
-            .booking-options {
-                flex-direction: column;
+            .badge-number {
+                font-size: 2rem;
             }
         }
         
@@ -581,344 +765,282 @@
             }
         }
         
-        /* Inquiry Success Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1001;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            max-width: 500px;
-            text-align: center;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .modal-content i {
-            font-size: 4rem;
-            color: var(--success);
-            margin-bottom: 1.5rem;
-        }
-        
-        .modal-buttons {
-            margin-top: 2rem;
-        }
-        
-        /* Urgency Elements */
-        .urgency-badge {
-            display: inline-block;
-            background: #ff4757;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-left: 1rem;
-            animation: pulse 2s infinite;
-        }
-        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
         
-        .limited-offer {
-            background: linear-gradient(45deg, var(--accent), #ff9f43);
-            color: var(--dark);
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 1rem;
+        /* Show/Hide steps */
+        .step-container {
+            display: none;
+        }
+        
+        .step-container.active {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* WhatsApp Direct Button */
+        .whatsapp-direct {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            max-width: 200px;
+            animation: slideInRight 0.5s ease;
+        }
+        
+        .whatsapp-direct:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
 <body>
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/916361711846?text=Hi%20I'm%20interested%20in%20booking%20an%20appointment%20at%20your%20salon" target="_blank" class="floating-whatsapp">
+    <a href="https://wa.me/916361711846?text=Hi%20CHEAP%20%26%20BEST%20Salon%2C%20I'm%20interested%20in%20your%20services" 
+       target="_blank" 
+       class="floating-whatsapp" 
+       id="floatingWhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content container">
-            <h1>Affordable Beauty. Best Results.</h1>
-            <div class="hero-subtitle">Hair • Skin • Bridal • Everyday Glow</div>
+    <!-- WhatsApp Direct Button (Appears after service selection) -->
+    <a href="#" target="_blank" class="whatsapp-direct" id="whatsappDirect" style="display: none;">
+        <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
+    </a>
+
+    <!-- Progress Steps -->
+    <div class="progress-steps container" id="progressSteps" style="display: none;">
+        <div class="step-line"></div>
+        
+        <div class="step">
+            <div class="step-circle active" id="step1Circle">1</div>
+            <div class="step-label">Choose Interest</div>
+        </div>
+        
+        <div class="step">
+            <div class="step-circle" id="step2Circle">2</div>
+            <div class="step-label">Select Service</div>
+        </div>
+        
+        <div class="step">
+            <div class="step-circle" id="step3Circle">3</div>
+            <div class="step-label">Book Appointment</div>
+        </div>
+    </div>
+
+    <!-- Step 1: Brand Landing -->
+    <div id="step1" class="step-container active brand-landing">
+        <div class="brand-content">
+            <h1>CHEAP & BEST</h1>
+            <div class="brand-tagline">Women's Salon</div>
             
-            <div class="cta-highlight">
-                <p>Professional women's salon trusted by local customers. Clean, hygienic & affordable beauty services.</p>
-                <div class="limited-offer">🎉 First-time customers get 20% off! Limited time offer</div>
+            <div class="brand-highlight">
+                <p style="font-size: 1.3rem; margin-bottom: 1rem;">Affordable Beauty. Premium Results.</p>
+                <p>Professional women's salon with best prices in town. Quality services without breaking the bank.</p>
+                
+                <div style="background: rgba(255, 209, 102, 0.2); padding: 1rem; border-radius: 10px; margin-top: 1rem;">
+                    <p style="color: var(--accent); font-weight: 600; margin: 0;">
+                        <i class="fas fa-gift"></i> First-time customers get 20% OFF!
+                    </p>
+                </div>
             </div>
             
-            <div class="hero-buttons">
-                <a href="#booking" class="btn btn-primary btn-lg">Book Appointment Now <span class="urgency-badge">Today's Slots: 3 left</span></a>
-                <a href="https://wa.me/919876543210?text=Hi%20I%20have%20a%20question%20about%20your%20services" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                </a>
-            </div>
-            
-            <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                <div style="text-align: center;">
-                    <div style="font-size: 2rem; font-weight: bold; color: var(--accent);">500+</div>
+            <div class="trust-badges">
+                <div class="badge">
+                    <span class="badge-number">500+</span>
                     <div>Happy Customers</div>
                 </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 2rem; font-weight: bold; color: var(--accent);">5★</div>
+                <div class="badge">
+                    <span class="badge-number">5★</span>
                     <div>Rated Service</div>
                 </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 2rem; font-weight: bold; color: var(--accent);">100%</div>
+                <div class="badge">
+                    <span class="badge-number">100%</span>
                     <div>Women Staff</div>
                 </div>
             </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Our Salon</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salon Interior">
-                </div>
-                <div>
-                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">We believe every woman deserves to feel beautiful without breaking the bank. Our salon is designed to provide premium beauty services at affordable prices.</p>
-                    
-                    <div class="about-points">
-                        <div class="point">
-                            <i class="fas fa-rupee-sign"></i>
-                            <h3>Affordable Pricing</h3>
-                            <p>Quality services at prices that fit your budget</p>
-                        </div>
-                        <div class="point">
-                            <i class="fas fa-user-shield"></i>
-                            <h3>Women Staff Only</h3>
-                            <p>Professional, experienced & friendly women technicians</p>
-                        </div>
-                        <div class="point">
-                            <i class="fas fa-hand-sparkles"></i>
-                            <h3>Clean & Hygienic</h3>
-                            <p>Sterilized tools, single-use products, sanitized spaces</p>
-                        </div>
-                        <div class="point">
-                            <i class="fas fa-heart"></i>
-                            <h3>Local Trust</h3>
-                            <p>Trusted by neighborhood women for years</p>
-                        </div>
-                    </div>
-                    
-                    <a href="#contact" class="btn btn-secondary" style="margin-top: 2rem;">
-                        <i class="fas fa-map-marker-alt"></i> Visit Our Salon
-                    </a>
-                </div>
+            
+            <button id="exploreServices" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
+                <i class="fas fa-spa"></i> Explore Our Services
+            </button>
+            
+            <div style="margin-top: 3rem;">
+                <a href="https://wa.me/916361711846?text=Hi%20CHEAP%20%26%20BEST%20Salon%2C%20I%20have%20a%20question" 
+                   target="_blank" 
+                   class="btn btn-whatsapp" 
+                   style="margin: 0.5rem;">
+                    <i class="fab fa-whatsapp"></i> Quick Question? WhatsApp Us
+                </a>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Beauty Services</h2>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-icon">
+    <!-- Step 2: Interest Selection -->
+    <div id="step2" class="step-container interest-selection">
+        <div class="interest-content">
+            <h2>What Are You Looking For?</h2>
+            <p class="interest-question">Choose your area of interest to see relevant services</p>
+            
+            <div class="interest-options">
+                <!-- Hair -->
+                <div class="interest-option hair" data-interest="hair">
+                    <div class="interest-icon hair">
                         <i class="fas fa-cut"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Haircut & Styling</h3>
-                        <p>Professional haircuts, blow-dry, ironing, and hair styling for any occasion.</p>
-                        <div class="service-price">Starting from ₹299</div>
-                        <a href="#booking" class="service-cta">Book Now</a>
+                    <h3>Hair Services</h3>
+                    <p class="option-description">Complete hair care & styling</p>
+                    <div class="option-services">
+                        <span class="service-tag">Haircut</span>
+                        <span class="service-tag">Hair Spa</span>
+                        <span class="service-tag">Coloring</span>
+                        <span class="service-tag">Styling</span>
                     </div>
                 </div>
                 
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Hair Spa & Treatments</h3>
-                        <p>Revitalize your hair with our premium hair spa, keratin, and conditioning treatments.</p>
-                        <div class="service-price">Starting from ₹799</div>
-                        <a href="#booking" class="service-cta">Book Now</a>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-icon">
+                <!-- Skin -->
+                <div class="interest-option skin" data-interest="skin">
+                    <div class="interest-icon skin">
                         <i class="fas fa-air-freshener"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Facial & Cleanup</h3>
-                        <p>Deep cleansing, basic facials, and specialized skin treatments for glowing skin.</p>
-                        <div class="service-price">Starting from ₹499</div>
-                        <a href="#booking" class="service-cta">Book Now</a>
+                    <h3>Skin Services</h3>
+                    <p class="option-description">Glowing skin treatments</p>
+                    <div class="option-services">
+                        <span class="service-tag">Facials</span>
+                        <span class="service-tag">Cleanup</span>
+                        <span class="service-tag">Bleach</span>
+                        <span class="service-tag">Skin Care</span>
                     </div>
                 </div>
                 
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-leaf"></i>
+                <!-- Nails -->
+                <div class="interest-option nails" data-interest="nails">
+                    <div class="interest-icon nails">
+                        <i class="fas fa-hand-sparkles"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Waxing & Threading</h3>
-                        <p>Full body waxing, facial threading, and eyebrow shaping with premium products.</p>
-                        <div class="service-price">Starting from ₹199</div>
-                        <a href="#booking" class="service-cta">Book Now</a>
-                    </div>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Threading & Bleach</h3>
-                        <p>Precise threading for perfect brows, upper lips, and face with skin-friendly bleach.</p>
-                        <div class="service-price">Starting from ₹99</div>
-                        <a href="#booking" class="service-cta">Book Now</a>
+                    <h3>Nail Services</h3>
+                    <p class="option-description">Beautiful nails & care</p>
+                    <div class="option-services">
+                        <span class="service-tag">Manicure</span>
+                        <span class="service-tag">Pedicure</span>
+                        <span class="service-tag">Nail Art</span>
+                        <span class="service-tag">Nail Extensions</span>
                     </div>
                 </div>
                 
-                <!-- Service 6 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-heart"></i>
+                <!-- All Services -->
+                <div class="interest-option all" data-interest="all">
+                    <div class="interest-icon all">
+                        <i class="fas fa-spa"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Bridal & Party Makeup</h3>
-                        <p>Professional makeup for weddings, parties, and special occasions with trial sessions.</p>
-                        <div class="service-price">Starting from ₹2999</div>
-                        <a href="#booking" class="service-cta">Book Now</a>
+                    <h3>All Services</h3>
+                    <p class="option-description">Complete beauty package</p>
+                    <div class="option-services">
+                        <span class="service-tag">Hair + Skin</span>
+                        <span class="service-tag">Nails + Makeup</span>
+                        <span class="service-tag">Bridal</span>
+                        <span class="service-tag">Party</span>
                     </div>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="tel:+919876543210" class="btn btn-accent">
-                    <i class="fas fa-phone-alt"></i> Call Now for Consultation: +91 98765 43210
-                </a>
-            </div>
+            <button id="backToHome" class="btn" style="background: var(--gray); color: var(--dark); margin-top: 2rem;">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </button>
         </div>
-    </section>
+    </div>
 
-    <!-- Why Choose Us -->
-    <section id="why-us" class="why-us">
+    <!-- Step 3: Services Display -->
+    <div id="step3" class="step-container services-display">
         <div class="container">
-            <h2>Why Choose Our Salon</h2>
-            <div class="benefits">
-                <div class="benefit">
-                    <i class="fas fa-tags"></i>
-                    <h3>Affordable Pricing</h3>
-                    <p>No hidden charges. Transparent pricing for all services.</p>
+            <div id="servicesHeader" class="services-header hair">
+                <div class="services-title">
+                    <i id="servicesIcon" class="fas fa-cut"></i>
+                    <h2 id="servicesTitle">Hair Services</h2>
                 </div>
-                <div class="benefit">
-                    <i class="fas fa-award"></i>
-                    <h3>Experienced Staff</h3>
-                    <p>5+ years average experience. Regular training updates.</p>
-                </div>
-                <div class="benefit">
-                    <i class="fas fa-star"></i>
-                    <h3>Quality Products</h3>
-                    <p>Using premium, skin-friendly products from trusted brands.</p>
-                </div>
-                <div class="benefit">
-                    <i class="fas fa-smile"></i>
-                    <h3>Friendly Service</h3>
-                    <p>Warm, welcoming atmosphere. Personalized attention.</p>
-                </div>
-                <div class="benefit">
-                    <i class="fas fa-home"></i>
-                    <h3>Local Neighborhood Trust</h3>
-                    <p>Serving local community for years with consistent quality.</p>
-                </div>
-                <div class="benefit">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Hygiene First</h3>
-                    <p>Sterilized tools, disposable products, sanitized workstations.</p>
-                </div>
+                <p id="servicesSubtitle">Choose from our premium hair services. Select one to book instantly.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2>Our Work Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Salon Interior">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hair Styling">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bridal Makeup">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Facial Treatment">
-                </div>
+            
+            <div id="servicesGrid" class="services-grid">
+                <!-- Services will be dynamically loaded here -->
             </div>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section id="booking" class="booking">
-        <div class="container">
-            <h2>Book Your Appointment</h2>
-            <div class="booking-container">
-                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Fill the form below and we'll confirm your slot within 30 minutes!</p>
+            
+            <div style="text-align: center;">
+                <button id="backToInterests" class="btn" style="background: var(--gray); color: var(--dark); margin-right: 1rem;">
+                    <i class="fas fa-arrow-left"></i> Choose Different Category
+                </button>
                 
-                <form id="appointmentForm">
+                <button id="whatsappConsult" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Need Help Choosing?
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4: WhatsApp Booking Form -->
+    <div id="step4" class="step-container booking-form">
+        <div class="booking-container">
+            <div id="bookingHeader" class="booking-header hair">
+                <h2>Book Your Appointment</h2>
+                <div class="selected-service-display">
+                    <i id="bookingServiceIcon" class="fas fa-cut"></i>
+                    <div>
+                        <strong id="bookingServiceName" style="font-size: 1.2rem;">Haircut & Styling</strong>
+                        <div id="bookingServicePrice">Starting from ₹299</div>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; opacity: 0.9;">Fill the form below & we'll send booking details to WhatsApp instantly!</p>
+            </div>
+            
+            <div class="booking-form-content">
+                <form id="whatsappBookingForm">
                     <div class="form-group">
-                        <label for="name">Your Name *</label>
-                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                        <label for="customerName">Your Name *</label>
+                        <input type="text" id="customerName" class="form-control" placeholder="Enter your full name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" class="form-control" placeholder="Enter your 10-digit mobile number" required>
+                        <label for="customerPhone">Phone Number *</label>
+                        <input type="tel" id="customerPhone" class="form-control" placeholder="10-digit mobile number for WhatsApp" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="service">Service Required *</label>
-                        <select id="service" class="form-control" required>
-                            <option value="">Select a service</option>
-                            <option value="Haircut & Styling">Haircut & Styling</option>
-                            <option value="Hair Spa">Hair Spa</option>
-                            <option value="Facial & Cleanup">Facial & Cleanup</option>
-                            <option value="Waxing">Waxing</option>
-                            <option value="Threading">Threading</option>
-                            <option value="Bridal Makeup">Bridal / Party Makeup</option>
-                            <option value="Consultation">Consultation</option>
-                        </select>
+                        <label for="selectedServiceDisplay">Selected Service</label>
+                        <input type="text" id="selectedServiceDisplay" class="form-control" readonly style="background: var(--light); font-weight: 500;">
                     </div>
                     
                     <div class="form-group">
-                        <label for="date">Preferred Date *</label>
-                        <input type="date" id="date" class="form-control" required>
+                        <label for="bookingDate">Preferred Date *</label>
+                        <input type="date" id="bookingDate" class="form-control" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="time">Preferred Time *</label>
-                        <select id="time" class="form-control" required>
+                        <label for="bookingTime">Preferred Time *</label>
+                        <select id="bookingTime" class="form-control" required>
                             <option value="">Select time slot</option>
                             <option value="10:00 AM">10:00 AM</option>
                             <option value="11:00 AM">11:00 AM</option>
@@ -931,237 +1053,487 @@
                         </select>
                     </div>
                     
-                    <button type="submit" class="btn btn-accent" style="width: 100%; padding: 1.2rem; font-size: 1.2rem;">
-                        <i class="fas fa-calendar-check"></i> Confirm Appointment
-                    </button>
+                    <div class="form-group">
+                        <label for="additionalNotes">Additional Notes (Optional)</label>
+                        <textarea id="additionalNotes" class="form-control" placeholder="Any specific requirements, allergies, or questions..." rows="3"></textarea>
+                    </div>
+                    
+                    <div class="urgency-note">
+                        <i class="fas fa-bolt"></i> <strong>Fast Response:</strong> We typically respond within 5 minutes on WhatsApp!
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-whatsapp" style="flex: 2;">
+                            <i class="fab fa-whatsapp"></i> Send Booking Request via WhatsApp
+                        </button>
+                        
+                        <button type="button" id="backToServices" class="btn" style="background: var(--gray); color: var(--dark);">
+                            <i class="fas fa-arrow-left"></i> Change Service
+                        </button>
+                    </div>
                 </form>
                 
-                <div class="booking-options">
-                    <div style="text-align: center;">
-                        <p>Prefer to book directly?</p>
-                        <a href="tel:+919876543210" class="btn btn-secondary">
-                            <i class="fas fa-phone-alt"></i> Call Now
-                        </a>
-                    </div>
-                    
-                    <div style="text-align: center;">
-                        <p>Quick response on WhatsApp</p>
-                        <a href="https://wa.me/916361711846?text=Hi%20I%20want%20to%20book%20an%20appointment" target="_blank" class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> WhatsApp Booking
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Visit Our Salon</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3 style="margin-bottom: 1rem;">Contact Information</h3>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Address</strong>
-                            <p>123 Beauty Street, Near City Mall<br>Your City, State - 123456</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <strong>Phone Number</strong>
-                            <p><a href="tel:+919876543210" style="color: var(--dark); text-decoration: none;">+91 98765 43210</a></p>
-                            <p style="font-size: 0.9rem; color: #666;">Click to call directly</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="far fa-clock"></i>
-                        <div>
-                            <strong>Working Hours</strong>
-                            <p>Monday - Saturday: 9:30 AM - 7:30 PM</p>
-                            <p>Sunday: 10:00 AM - 5:00 PM</p>
-                        </div>
-                    </div>
+                <div class="booking-alternatives">
+                    <p>Prefer to talk first?</p>
+                    <a href="tel:+916361711846" class="btn btn-secondary" style="margin: 0.5rem;">
+                        <i class="fas fa-phone-alt"></i> Call for Consultation: +91 6361 711846
+                    </a>
                     
                     <div style="margin-top: 1rem;">
-                        <a href="#booking" class="btn btn-primary" style="margin-right: 1rem;">
-                            <i class="fas fa-calendar-alt"></i> Book Now
-                        </a>
-                        <a href="https://maps.google.com/?q=123+Beauty+Street,+Near+City+Mall" target="_blank" class="btn btn-secondary">
-                            <i class="fas fa-directions"></i> Get Directions
+                        <a href="https://wa.me/916361711846?text=Hi%20I%20want%20to%20book%20an%20appointment" 
+                           target="_blank" 
+                           class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Direct WhatsApp Booking
                         </a>
                     </div>
                 </div>
-                
-                <div class="map-container">
-                    <!-- Google Maps Embed -->
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.389981737448!2d77.22702231508246!3d28.628139982421993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1623754123456!5m2!1sen!2sin" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h3 style="color: white; margin-bottom: 1rem;">CHEAP & BEST Women's Salon</h3>
-                    <p>Affordable beauty services with premium results. Your trusted neighborhood salon.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-google"></i></a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 style="color: white; margin-bottom: 1rem;">Quick Links</h4>
-                    <ul style="list-style: none;">
-                        <li><a href="#about" style="color: #ddd; text-decoration: none;">About Us</a></li>
-                        <li><a href="#services" style="color: #ddd; text-decoration: none;">Services</a></li>
-                        <li><a href="#gallery" style="color: #ddd; text-decoration: none;">Gallery</a></li>
-                        <li><a href="#booking" style="color: #ddd; text-decoration: none;">Book Appointment</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 style="color: white; margin-bottom: 1rem;">Contact Us</h4>
-                    <p><i class="fas fa-phone-alt" style="margin-right: 0.5rem;"></i> <a href="tel:+919876543210" style="color: #ddd; text-decoration: none;">+91 98765 43210</a></p>
-                    <p><i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> <a href="https://wa.me/919876543210" target="_blank" style="color: #ddd; text-decoration: none;">Chat on WhatsApp</a></p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>© CHEAP & BEST Women's Salon. All rights reserved.</p>
-                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Designed to bring out your natural beauty</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Inquiry Success Modal -->
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <i class="fas fa-check-circle"></i>
-            <h2>Appointment Request Sent!</h2>
-            <p>Thank you for booking with us. We'll call you within 30 minutes to confirm your appointment.</p>
-            <p><strong>In the meantime, you can:</strong></p>
-            
-            <div class="modal-buttons">
-                <a href="https://wa.me/916361711846?text=Hi%20I%20just%20booked%20an%20appointment%20online" target="_blank" class="btn btn-whatsapp" style="margin-right: 1rem;">
-                    <i class="fab fa-whatsapp"></i> Confirm on WhatsApp
-                </a>
-                <button onclick="closeModal()" class="btn btn-secondary">
-                    Close
-                </button>
             </div>
         </div>
     </div>
 
     <script>
-        // Appointment Form Handling
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            
-            // In a real implementation, you would send this data to your server
-            // For demo purposes, we'll just show the success modal
-            
-            // Create WhatsApp message
-            const whatsappMessage = `New Appointment Request:%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADate: ${date}%0ATime: ${time}`;
-            
-            // Update WhatsApp button in modal
-            const modalWhatsappBtn = document.querySelector('.modal-buttons .btn-whatsapp');
-            modalWhatsappBtn.href = `https://wa.me/919876543210?text=${whatsappMessage}`;
-            
-            // Show success modal
-            document.getElementById('successModal').style.display = 'flex';
-            
-            // Reset form
-            document.getElementById('appointmentForm').reset();
-            
-            // Set min date for date picker to today
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('date').min = today;
-            
-            // You would typically send this data to your backend here
-            console.log('Appointment Request:', { name, phone, service, date, time });
-            
-            // For demo, simulate sending to backend
-            // fetch('/api/appointments', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ name, phone, service, date, time })
-            // });
+        // WhatsApp Number - REPLACE THIS WITH ACTUAL NUMBER
+        const WHATSAPP_NUMBER = "916361711846"; // Format: country code + number (no + sign)
+        
+        // State Management
+        let currentStep = 1;
+        let selectedInterest = '';
+        let selectedService = {};
+        
+        // Service Data
+        const servicesData = {
+            hair: [
+                {
+                    id: 'hair1',
+                    name: "Haircut & Styling",
+                    icon: "fas fa-cut",
+                    price: "Starting from ₹299",
+                    duration: "45-60 mins",
+                    description: "Professional haircut with blow dry and styling",
+                    features: ["Expert consultation", "Latest trends", "Personalized styling"]
+                },
+                {
+                    id: 'hair2',
+                    name: "Hair Spa Treatment",
+                    icon: "fas fa-spa",
+                    price: "Starting from ₹799",
+                    duration: "90 mins",
+                    description: "Deep conditioning for damaged hair",
+                    features: ["Premium products", "Scalp massage", "Steam treatment"]
+                },
+                {
+                    id: 'hair3',
+                    name: "Hair Coloring",
+                    icon: "fas fa-fill-drip",
+                    price: "Starting from ₹1299",
+                    duration: "120 mins",
+                    description: "Global color, highlights, or root touch-up",
+                    features: ["Color consultation", "Ammonia-free options", "Color protection"]
+                },
+                {
+                    id: 'hair4',
+                    name: "Keratin Treatment",
+                    icon: "fas fa-wind",
+                    price: "Starting from ₹2999",
+                    duration: "150 mins",
+                    description: "Smoothing treatment for frizzy hair",
+                    features: ["Frizz control", "Smoothens hair", "Lasts 3-4 months"]
+                },
+                {
+                    id: 'hair5',
+                    name: "Bridal Hair Styling",
+                    icon: "fas fa-crown",
+                    price: "Starting from ₹1499",
+                    duration: "90 mins",
+                    description: "Traditional bridal hairstyles",
+                    features: ["Hair accessories", "Flowers", "Jewelry setting"]
+                }
+            ],
+            skin: [
+                {
+                    id: 'skin1',
+                    name: "Basic Facial",
+                    icon: "fas fa-air-freshener",
+                    price: "Starting from ₹499",
+                    duration: "60 mins",
+                    description: "Deep cleansing, exfoliation, and hydration",
+                    features: ["Skin analysis", "Steam", "Extraction", "Mask"]
+                },
+                {
+                    id: 'skin2',
+                    name: "Cleanup & Bleach",
+                    icon: "fas fa-broom",
+                    price: "Starting from ₹399",
+                    duration: "45 mins",
+                    description: "Complete face cleanup with bleaching",
+                    features: ["Deep cleansing", "Bleaching", "Face pack", "Toning"]
+                },
+                {
+                    id: 'skin3',
+                    name: "Anti-Acne Treatment",
+                    icon: "fas fa-seedling",
+                    price: "Starting from ₹899",
+                    duration: "75 mins",
+                    description: "Specialized treatment for acne-prone skin",
+                    features: ["Medicated products", "Acne extraction", "Calming mask"]
+                },
+                {
+                    id: 'skin4',
+                    name: "Gold Facial",
+                    icon: "fas fa-gem",
+                    price: "Starting from ₹1299",
+                    duration: "90 mins",
+                    description: "Luxury facial with gold particles",
+                    features: ["Gold serum", "Anti-aging", "Brightening", "Firming"]
+                }
+            ],
+            nails: [
+                {
+                    id: 'nail1',
+                    name: "Basic Manicure",
+                    icon: "fas fa-hand-sparkles",
+                    price: "Starting from ₹299",
+                    duration: "45 mins",
+                    description: "Complete hand care and nail grooming",
+                    features: ["Cleaning", "Cutting", "Filing", "Massage", "Polish"]
+                },
+                {
+                    id: 'nail2',
+                    name: "Basic Pedicure",
+                    icon: "fas fa-shoe-prints",
+                    price: "Starting from ₹399",
+                    duration: "60 mins",
+                    description: "Complete foot care and nail grooming",
+                    features: ["Foot soak", "Callus removal", "Cutting", "Massage", "Polish"]
+                },
+                {
+                    id: 'nail3',
+                    name: "Nail Art & Design",
+                    icon: "fas fa-paint-brush",
+                    price: "Starting from ₹199",
+                    duration: "30-60 mins",
+                    description: "Beautiful nail art designs",
+                    features: ["Multiple designs", "Gem stones", "French manicure", "Custom designs"]
+                },
+                {
+                    id: 'nail4',
+                    name: "Gel Nail Polish",
+                    icon: "fas fa-gem",
+                    price: "Starting from ₹599",
+                    duration: "90 mins",
+                    description: "Long-lasting gel polish application",
+                    features: ["Lasts 2-3 weeks", "Multiple colors", "Shiny finish", "Quick drying"]
+                }
+            ],
+            all: [
+                {
+                    id: 'all1',
+                    name: "Complete Beauty Package",
+                    icon: "fas fa-spa",
+                    price: "Starting from ₹1999",
+                    duration: "180 mins",
+                    description: "Hair + Skin + Nails complete treatment",
+                    features: ["Haircut/Styling", "Basic Facial", "Manicure", "Pedicure", "Makeup"]
+                },
+                {
+                    id: 'all2',
+                    name: "Bridal Package",
+                    icon: "fas fa-heart",
+                    price: "Starting from ₹5999",
+                    duration: "240 mins",
+                    description: "Complete bridal makeover",
+                    features: ["Bridal Makeup", "Hair Styling", "Manicure", "Pedicure", "Facial"]
+                },
+                {
+                    id: 'all3',
+                    name: "Party Makeover",
+                    icon: "fas fa-glass-cheers",
+                    price: "Starting from ₹1499",
+                    duration: "120 mins",
+                    description: "Complete party look",
+                    features: ["Party Makeup", "Hair Styling", "Quick Facial", "Nail Polish"]
+                },
+                {
+                    id: 'all4',
+                    name: "Monthly Glow Package",
+                    icon: "fas fa-calendar-alt",
+                    price: "Starting from ₹2999/month",
+                    duration: "Monthly",
+                    description: "Monthly grooming subscription",
+                    features: ["4 Facials", "4 Threading", "4 Manicures", "Discount on other services"]
+                }
+            ]
+        };
+        
+        // Interest Configuration
+        const interestsConfig = {
+            hair: {
+                title: "Hair Services",
+                icon: "fas fa-cut",
+                color: "hair",
+                subtitle: "Transform your hair with our expert services"
+            },
+            skin: {
+                title: "Skin Services",
+                icon: "fas fa-air-freshener",
+                color: "skin",
+                subtitle: "Achieve glowing, healthy skin"
+            },
+            nails: {
+                title: "Nail Services",
+                icon: "fas fa-hand-sparkles",
+                color: "nails",
+                subtitle: "Beautiful nails for beautiful hands"
+            },
+            all: {
+                title: "All Services",
+                icon: "fas fa-spa",
+                color: "all",
+                subtitle: "Complete beauty solutions"
+            }
+        };
+        
+        // DOM Elements
+        const stepContainers = document.querySelectorAll('.step-container');
+        const progressSteps = document.getElementById('progressSteps');
+        const stepCircles = document.querySelectorAll('.step-circle');
+        const whatsappDirectBtn = document.getElementById('whatsappDirect');
+        
+        // Step 1: Explore Services
+        document.getElementById('exploreServices').addEventListener('click', function() {
+            goToStep(2);
         });
         
-        // Close modal function
-        function closeModal() {
-            document.getElementById('successModal').style.display = 'none';
+        // Step 2: Interest Selection
+        document.querySelectorAll('.interest-option').forEach(option => {
+            option.addEventListener('click', function() {
+                selectedInterest = this.dataset.interest;
+                goToStep(3);
+                loadServicesForInterest(selectedInterest);
+            });
+        });
+        
+        // Back to Home from Interest Selection
+        document.getElementById('backToHome').addEventListener('click', function() {
+            goToStep(1);
+        });
+        
+        // Step 3: Load Services
+        function loadServicesForInterest(interest) {
+            const config = interestsConfig[interest];
+            const services = servicesData[interest];
+            
+            // Update header
+            document.getElementById('servicesTitle').textContent = config.title;
+            document.getElementById('servicesIcon').className = config.icon;
+            document.getElementById('servicesSubtitle').textContent = config.subtitle;
+            document.getElementById('servicesHeader').className = `services-header ${config.color}`;
+            
+            // Clear and populate services grid
+            const servicesGrid = document.getElementById('servicesGrid');
+            servicesGrid.innerHTML = '';
+            
+            services.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = `service-card ${config.color}`;
+                serviceCard.innerHTML = `
+                    <div class="service-card-header">
+                        <div class="service-icon">
+                            <i class="${service.icon}"></i>
+                        </div>
+                        <div>
+                            <h3>${service.name}</h3>
+                            <div class="service-price">${service.price}</div>
+                            <div class="service-duration">${service.duration}</div>
+                        </div>
+                    </div>
+                    <div class="service-card-content">
+                        <p>${service.description}</p>
+                        <ul class="service-features">
+                            ${service.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
+                        </ul>
+                        <button class="service-select-btn" data-service-id="${service.id}">
+                            <i class="fas fa-calendar-plus"></i> Book This Service
+                        </button>
+                    </div>
+                `;
+                servicesGrid.appendChild(serviceCard);
+            });
+            
+            // Add event listeners to service buttons
+            document.querySelectorAll('.service-select-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const serviceId = this.dataset.serviceId;
+                    // Find the selected service
+                    const service = servicesData[interest].find(s => s.id === serviceId);
+                    selectedService = {
+                        ...service,
+                        category: interest
+                    };
+                    
+                    // Update WhatsApp direct button
+                    updateWhatsAppDirectButton(selectedService);
+                    
+                    goToStep(4);
+                    loadBookingForm(selectedService);
+                });
+            });
         }
         
-        // Set min date for date picker
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('date').min = today;
+        // Back to Interests from Services
+        document.getElementById('backToInterests').addEventListener('click', function() {
+            goToStep(2);
+        });
+        
+        // WhatsApp Consultation from Services
+        document.getElementById('whatsappConsult').addEventListener('click', function() {
+            const message = `Hi CHEAP & BEST Salon, I need help choosing a ${selectedInterest} service. Can you recommend something?`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        });
+        
+        // Step 4: Load Booking Form
+        function loadBookingForm(service) {
+            const config = interestsConfig[service.category];
             
-            // Auto-scroll to booking section if URL has hash
-            if(window.location.hash === '#booking') {
-                document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-            }
+            // Update header
+            document.getElementById('bookingHeader').className = `booking-header ${config.color}`;
+            document.getElementById('bookingServiceIcon').className = service.icon;
+            document.getElementById('bookingServiceName').textContent = service.name;
+            document.getElementById('bookingServicePrice').textContent = service.price;
+            document.getElementById('selectedServiceDisplay').value = `${service.name} (${service.price})`;
+        }
+        
+        // Back to Services from Booking
+        document.getElementById('backToServices').addEventListener('click', function() {
+            goToStep(3);
         });
         
-        // Phone number click tracking
-        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('Phone number clicked:', this.href);
-                // You can add analytics tracking here
+        // Update WhatsApp Direct Button
+        function updateWhatsAppDirectButton(service) {
+            const message = `Hi CHEAP & BEST Salon, I want to book: ${service.name} (${service.price}). Please send me available slots.`;
+            whatsappDirectBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            whatsappDirectBtn.style.display = 'flex';
+        }
+        
+        // WhatsApp Booking Form Submission
+        document.getElementById('whatsappBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const service = document.getElementById('selectedServiceDisplay').value;
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+            const notes = document.getElementById('additionalNotes').value;
+            
+            // Format date
+            const formattedDate = new Date(date).toLocaleDateString('en-IN', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
             });
+            
+            // Create WhatsApp message
+            const message = `*NEW APPOINTMENT REQUEST*%0A%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A%0A💇 *Service:* ${service}%0A📅 *Date:* ${formattedDate}%0A⏰ *Time:* ${time}%0A%0A📝 *Notes:* ${notes || 'None'}%0A%0A📍 *Salon:* CHEAP & BEST Women's Salon%0A📱 *Via:* Website Booking Form`;
+            
+            // Open WhatsApp with pre-filled message
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+            
+            // Reset form
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('bookingDate').value = '';
+            document.getElementById('bookingTime').value = '';
+            document.getElementById('additionalNotes').value = '';
+            
+            // Show success message
+            alert('Opening WhatsApp... Please send the pre-filled message to confirm your booking!');
         });
         
-        // WhatsApp click tracking
-        document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('WhatsApp clicked:', this.href);
-                // You can add analytics tracking here
-            });
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+        // Navigation Function
+        function goToStep(stepNumber) {
+            // Hide all steps
+            stepContainers.forEach(step => step.classList.remove('active'));
+            
+            // Show selected step
+            document.getElementById(`step${stepNumber}`).classList.add('active');
+            
+            // Update progress steps
+            if (stepNumber > 1) {
+                progressSteps.style.display = 'flex';
                 
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                // Update step circles
+                stepCircles.forEach((circle, index) => {
+                    circle.classList.remove('active', 'completed');
+                    if (index + 1 < stepNumber) {
+                        circle.classList.add('completed');
+                    } else if (index + 1 === stepNumber) {
+                        circle.classList.add('active');
+                    }
+                });
+            } else {
+                progressSteps.style.display = 'none';
+                whatsappDirectBtn.style.display = 'none';
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            currentStep = stepNumber;
+            
+            // Set min date for date picker
+            if (stepNumber === 4) {
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('bookingDate').min = today;
+                
+                // Set tomorrow as default
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                document.getElementById('bookingDate').value = tomorrow.toISOString().split('T')[0];
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set min date for date picker
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('bookingDate').min = today;
+            
+            // Set tomorrow as default
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('bookingDate').value = tomorrow.toISOString().split('T')[0];
+            
+            // Update all WhatsApp links with correct number
+            document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+                const currentHref = link.getAttribute('href');
+                if (currentHref.includes('919876543210')) {
+                    link.href = currentHref.replace('919876543210', WHATSAPP_NUMBER);
                 }
             });
+            
+            // Update phone links
+            document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+                link.href = `tel:+${WHATSAPP_NUMBER}`;
+            });
+            
+            // Track clicks for analytics
+            document.querySelectorAll('a[href*="whatsapp"], .btn-whatsapp').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    console.log('WhatsApp click:', this.href);
+                    // Add your analytics tracking here
+                });
+            });
+        });
+        
+        // Floating WhatsApp button click
+        document.getElementById('floatingWhatsApp').addEventListener('click', function(e) {
+            // If user has selected a service, include it in the message
+            if (selectedService && selectedService.name) {
+                const message = `Hi CHEAP & BEST Salon, I'm interested in ${selectedService.name} (${selectedService.price}). Can you tell me more?`;
+                this.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            }
         });
     </script>
 </body>
