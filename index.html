@@ -44,7 +44,6 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--light);
-            padding-top: 70px; /* Space for floating nav */
         }
         
         h1, h2, h3, h4 {
@@ -143,10 +142,10 @@
             color: var(--dark);
         }
         
-        /* Floating Navigation Bar */
+        /* Fixed Navigation Bar - Updated Position */
         .floating-nav {
             position: fixed;
-            top: 20px;
+            top: 30px; /* Increased from 20px */
             left: 50%;
             transform: translateX(-50%);
             background: white;
@@ -234,7 +233,7 @@
         /* Back Button (Top Left) */
         .back-button-top {
             position: fixed;
-            top: 20px;
+            top: 30px; /* Increased from 20px */
             left: 20px;
             width: 50px;
             height: 50px;
@@ -269,7 +268,7 @@
             box-shadow: 0 8px 25px rgba(248, 165, 194, 0.3);
         }
         
-        /* Step 1: Brand Landing */
+        /* Step 1: Brand Landing - Fixed Spacing */
         .brand-landing {
             min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
@@ -279,14 +278,14 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 6rem 2rem 2rem; /* Added top padding for nav */
             color: white;
-            margin-top: -70px; /* Compensate for body padding */
         }
         
         .brand-content {
             max-width: 800px;
             animation: fadeIn 1s ease-out;
+            margin-top: 20px; /* Extra margin for nav clearance */
         }
         
         .brand-tagline {
@@ -324,12 +323,12 @@
             display: block;
         }
         
-        /* Step 2: Interest Selection */
+        /* Step 2: Interest Selection - HORIZONTAL SCROLL FOR MOBILE */
         .interest-selection {
             min-height: 100vh;
             display: none;
             align-items: center;
-            padding: 4rem 2rem;
+            padding: 6rem 1rem 3rem; /* Added top padding for nav */
             background: white;
         }
         
@@ -337,36 +336,53 @@
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            width: 100%;
         }
         
         .interest-question {
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
             color: var(--dark);
+            padding: 0 1rem;
+        }
+        
+        /* HORIZONTAL SCROLL CONTAINER FOR MOBILE */
+        .interest-options-container {
+            width: 100%;
+            overflow-x: auto;
+            padding: 1rem 0;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        
+        .interest-options-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
         }
         
         .interest-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            display: flex;
+            gap: 1.5rem;
+            padding: 0 1rem;
+            min-width: min-content; /* Allow horizontal scroll */
         }
         
         .interest-option {
             background: white;
-            border-radius: 20px;
-            padding: 3rem 2rem;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
             text-decoration: none;
             color: var(--dark);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
             overflow: hidden;
-            border: 3px solid transparent;
+            border: 2px solid transparent;
             cursor: pointer;
+            min-width: 250px; /* Fixed width for horizontal scroll */
+            flex-shrink: 0; /* Prevent shrinking */
         }
         
         .interest-option.hair {
@@ -386,15 +402,15 @@
         }
         
         .interest-option:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
         
         .interest-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            height: 100px;
-            width: 100px;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            height: 80px;
+            width: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -421,38 +437,44 @@
             color: var(--all);
         }
         
+        .interest-option h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
         .option-description {
             color: var(--text);
-            margin: 1rem 0;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
         }
         
         .option-services {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.3rem;
             justify-content: center;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
         }
         
         .service-tag {
             background: var(--gray);
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
         /* Step 3: Services Display */
         .services-display {
             min-height: 100vh;
             display: none;
-            padding: 4rem 2rem;
+            padding: 6rem 1rem 3rem; /* Added top padding for nav */
         }
         
         .services-header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            border-radius: 15px;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 12px;
             color: white;
         }
         
@@ -476,158 +498,135 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
         }
         
         .services-title i {
-            font-size: 2.5rem;
+            font-size: 2rem;
+        }
+        
+        .services-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
+        
+        #servicesSubtitle {
+            font-size: 1rem;
+            padding: 0 1rem;
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1000px;
         }
         
         .service-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            position: relative;
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
         }
         
         .service-card-header {
-            padding: 1.5rem;
+            padding: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         
         .service-card.hair .service-card-header {
             background: rgba(138, 75, 175, 0.1);
-            border-bottom: 3px solid var(--hair);
+            border-bottom: 2px solid var(--hair);
         }
         
         .service-card.skin .service-card-header {
             background: rgba(255, 154, 158, 0.1);
-            border-bottom: 3px solid var(--skin);
+            border-bottom: 2px solid var(--skin);
         }
         
         .service-card.nails .service-card-header {
             background: rgba(162, 155, 254, 0.1);
-            border-bottom: 3px solid var(--nails);
+            border-bottom: 2px solid var(--nails);
         }
         
         .service-card.all .service-card-header {
             background: rgba(255, 209, 102, 0.1);
-            border-bottom: 3px solid var(--all);
+            border-bottom: 2px solid var(--all);
         }
         
         .service-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
         
-        .service-card.hair .service-icon {
-            color: var(--hair);
-        }
-        
-        .service-card.skin .service-icon {
-            color: var(--skin);
-        }
-        
-        .service-card.nails .service-icon {
-            color: var(--nails);
-        }
-        
-        .service-card.all .service-icon {
-            color: var(--all);
+        .service-card-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
         }
         
         .service-card-content {
-            padding: 1.5rem;
+            padding: 1.2rem;
         }
         
         .service-price {
             color: var(--secondary);
             font-weight: 600;
-            font-size: 1.3rem;
-            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            margin: 0.3rem 0;
         }
         
         .service-duration {
             color: var(--text);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.7;
+        }
+        
+        .service-card-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
         }
         
         .service-features {
             list-style: none;
-            margin: 1rem 0;
+            margin: 0.8rem 0;
         }
         
         .service-features li {
-            padding: 0.3rem 0;
+            padding: 0.2rem 0;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 0.9rem;
         }
         
         .service-features li i {
             color: var(--success);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
         .service-select-btn {
             display: block;
             width: 100%;
-            padding: 1rem;
+            padding: 0.8rem;
             text-align: center;
             background: var(--gray);
             color: var(--dark);
             text-decoration: none;
             font-weight: 600;
-            border-radius: 0 0 15px 15px;
+            border-radius: 0 0 12px 12px;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-        }
-        
-        .service-card.hair .service-select-btn:hover {
-            background: var(--hair);
-            color: white;
-        }
-        
-        .service-card.skin .service-select-btn:hover {
-            background: var(--skin);
-            color: white;
-        }
-        
-        .service-card.nails .service-select-btn:hover {
-            background: var(--nails);
-            color: white;
-        }
-        
-        .service-card.all .service-select-btn:hover {
-            background: var(--all);
-            color: var(--dark);
-        }
-        
-        .back-button {
-            display: inline-block;
-            margin-top: 2rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
         }
         
         /* Step 4: WhatsApp Booking Form */
@@ -635,7 +634,7 @@
             min-height: 100vh;
             display: none;
             align-items: center;
-            padding: 4rem 2rem;
+            padding: 6rem 1rem 3rem; /* Added top padding for nav */
             background: var(--light);
         }
         
@@ -643,13 +642,13 @@
             max-width: 800px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         
         .booking-header {
-            padding: 3rem;
+            padding: 2rem;
             text-align: center;
             color: white;
         }
@@ -672,40 +671,41 @@
         
         .selected-service-display {
             background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             justify-content: center;
         }
         
         .selected-service-display i {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
         
         .booking-form-content {
-            padding: 3rem;
+            padding: 2rem;
         }
         
         .form-group {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             font-weight: 500;
             color: var(--dark);
+            font-size: 0.95rem;
         }
         
         .form-control {
             width: 100%;
-            padding: 1rem;
+            padding: 0.8rem;
             border: 2px solid var(--gray);
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
         }
@@ -719,40 +719,44 @@
         .form-actions {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             flex-wrap: wrap;
         }
         
         .form-actions .btn {
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
         }
         
         .urgency-note {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
             color: #856404;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 2rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .booking-alternatives {
-            margin-top: 3rem;
-            padding: 2rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
             background: var(--light);
-            border-radius: 15px;
+            border-radius: 12px;
             text-align: center;
         }
         
-        /* Progress Steps */
+        /* FIXED PROGRESS STEPS - NO OVERLAP */
         .progress-steps {
             display: flex;
             justify-content: center;
-            margin: 2rem 0 4rem;
+            align-items: center;
+            margin: 3rem 0 2rem; /* Increased top margin */
             position: relative;
+            width: 100%;
         }
         
         .step {
@@ -761,7 +765,8 @@
             align-items: center;
             position: relative;
             z-index: 2;
-            width: 100px;
+            width: 90px;
+            flex-shrink: 0;
         }
         
         .step-circle {
@@ -792,16 +797,18 @@
         }
         
         .step-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             text-align: center;
+            white-space: nowrap;
         }
         
         .step-line {
             position: absolute;
             top: 20px;
-            left: 70px;
-            right: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%; /* Fixed width instead of left/right */
             height: 2px;
             background: var(--gray);
             z-index: 1;
@@ -811,10 +818,10 @@
         .whatsapp-direct {
             position: fixed;
             bottom: 110px;
-            right: 30px;
+            right: 20px;
             background: var(--whatsapp);
             color: white;
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -823,8 +830,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.9rem;
-            max-width: 200px;
+            font-size: 0.85rem;
+            max-width: 180px;
             animation: slideInRight 0.5s ease;
         }
         
@@ -833,33 +840,75 @@
             transform: translateY(-3px);
         }
         
+        /* Current Step Indicator - MOVED DOWN */
+        .current-step-indicator {
+            position: fixed;
+            top: 100px; /* Moved down from 85px */
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(248, 165, 194, 0.3);
+            white-space: nowrap;
+            max-width: 90%;
+            text-align: center;
+        }
+        
+        .current-step-indicator.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        
+        .current-step-indicator.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        
         /* Mobile Responsive */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 992px) {
             h1 {
                 font-size: 2.8rem;
             }
             
             h2 {
-                font-size: 2.2rem;
-            }
-            
-            .interest-options {
-                grid-template-columns: repeat(2, 1fr);
+                font-size: 2rem;
             }
             
             .floating-nav {
                 min-width: 280px;
                 padding: 0.7rem 1.2rem;
+                top: 20px;
             }
             
-            .nav-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
+            .back-button-top {
+                top: 20px;
             }
             
-            .nav-label {
-                font-size: 1rem;
+            .brand-landing {
+                padding: 5rem 2rem 2rem;
+            }
+            
+            .interest-selection,
+            .services-display,
+            .booking-form {
+                padding: 5rem 1rem 3rem;
+            }
+            
+            .step-line {
+                width: 50%;
             }
         }
         
@@ -872,12 +921,31 @@
                 font-size: 1.8rem;
             }
             
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            /* HORIZONTAL SCROLL ACTIVE ON MOBILE */
             .interest-options {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-wrap: nowrap; /* Prevent wrapping */
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+            
+            .interest-option {
+                min-width: 220px; /* Smaller cards for mobile */
+                margin-right: 1rem;
             }
             
             .services-grid {
                 grid-template-columns: 1fr;
+                max-width: 400px;
+                gap: 1rem;
+            }
+            
+            .service-card {
+                margin: 0 auto;
             }
             
             .form-actions {
@@ -886,6 +954,9 @@
             
             .btn {
                 width: 100%;
+                min-width: auto;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
             }
             
             .trust-badges {
@@ -920,12 +991,101 @@
                 font-size: 1.2rem;
             }
             
-            body {
-                padding-top: 60px;
+            .step {
+                width: 70px;
+            }
+            
+            .step-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+            
+            .step-label {
+                font-size: 0.75rem;
+            }
+            
+            .step-line {
+                width: 40%;
+            }
+            
+            .progress-steps {
+                margin: 2.5rem 0 2rem;
+            }
+            
+            .whatsapp-direct {
+                right: 15px;
+                max-width: 160px;
+                font-size: 0.8rem;
+                padding: 0.7rem 1rem;
+            }
+            
+            .floating-whatsapp {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .current-step-indicator {
+                top: 85px; /* Adjusted for smaller nav */
+                font-size: 0.8rem;
+                padding: 0.4rem 1.2rem;
             }
             
             .brand-landing {
-                margin-top: -60px;
+                padding: 4.5rem 1.5rem 1.5rem;
+            }
+            
+            .interest-selection,
+            .services-display,
+            .booking-form {
+                padding: 4.5rem 1rem 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .interest-option {
+                min-width: 200px; /* Even smaller for very small screens */
+            }
+            
+            .step {
+                width: 60px;
+            }
+            
+            .step-circle {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+            
+            .step-label {
+                font-size: 0.7rem;
+            }
+            
+            .step-line {
+                width: 35%;
+            }
+            
+            .progress-steps {
+                margin: 2rem 0 1.5rem;
+            }
+            
+            .brand-landing {
+                padding: 4rem 1rem 1rem;
+            }
+            
+            .interest-selection,
+            .services-display,
+            .booking-form {
+                padding: 4rem 0.5rem 1.5rem;
+            }
+            
+            .current-step-indicator {
+                top: 80px;
+                font-size: 0.75rem;
+                padding: 0.3rem 1rem;
             }
         }
         
@@ -965,35 +1125,6 @@
         .step-container.active {
             display: flex;
             animation: fadeIn 0.5s ease;
-        }
-        
-        /* Current Step Indicator */
-        .current-step-indicator {
-            position: fixed;
-            top: 85px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            z-index: 1000;
-            box-shadow: 0 3px 10px rgba(248, 165, 194, 0.3);
-            white-space: nowrap;
-        }
-        
-        .current-step-indicator.hidden {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(-50%) translateY(-10px);
-        }
-        
-        .current-step-indicator.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
         }
     </style>
 </head>
@@ -1117,64 +1248,67 @@
             <h2>What Are You Looking For?</h2>
             <p class="interest-question">Choose your area of interest to see relevant services</p>
             
-            <div class="interest-options">
-                <!-- Hair -->
-                <div class="interest-option hair" data-interest="hair">
-                    <div class="interest-icon hair">
-                        <i class="fas fa-cut"></i>
+            <!-- Horizontal Scroll Container -->
+            <div class="interest-options-container">
+                <div class="interest-options">
+                    <!-- Hair -->
+                    <div class="interest-option hair" data-interest="hair">
+                        <div class="interest-icon hair">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>Hair Services</h3>
+                        <p class="option-description">Complete hair care & styling</p>
+                        <div class="option-services">
+                            <span class="service-tag">Haircut</span>
+                            <span class="service-tag">Hair Spa</span>
+                            <span class="service-tag">Coloring</span>
+                            <span class="service-tag">Styling</span>
+                        </div>
                     </div>
-                    <h3>Hair Services</h3>
-                    <p class="option-description">Complete hair care & styling</p>
-                    <div class="option-services">
-                        <span class="service-tag">Haircut</span>
-                        <span class="service-tag">Hair Spa</span>
-                        <span class="service-tag">Coloring</span>
-                        <span class="service-tag">Styling</span>
+                    
+                    <!-- Skin -->
+                    <div class="interest-option skin" data-interest="skin">
+                        <div class="interest-icon skin">
+                            <i class="fas fa-air-freshener"></i>
+                        </div>
+                        <h3>Skin Services</h3>
+                        <p class="option-description">Glowing skin treatments</p>
+                        <div class="option-services">
+                            <span class="service-tag">Facials</span>
+                            <span class="service-tag">Cleanup</span>
+                            <span class="service-tag">Bleach</span>
+                            <span class="service-tag">Skin Care</span>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Skin -->
-                <div class="interest-option skin" data-interest="skin">
-                    <div class="interest-icon skin">
-                        <i class="fas fa-air-freshener"></i>
+                    
+                    <!-- Nails -->
+                    <div class="interest-option nails" data-interest="nails">
+                        <div class="interest-icon nails">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <h3>Nail Services</h3>
+                        <p class="option-description">Beautiful nails & care</p>
+                        <div class="option-services">
+                            <span class="service-tag">Manicure</span>
+                            <span class="service-tag">Pedicure</span>
+                            <span class="service-tag">Nail Art</span>
+                            <span class="service-tag">Nail Extensions</span>
+                        </div>
                     </div>
-                    <h3>Skin Services</h3>
-                    <p class="option-description">Glowing skin treatments</p>
-                    <div class="option-services">
-                        <span class="service-tag">Facials</span>
-                        <span class="service-tag">Cleanup</span>
-                        <span class="service-tag">Bleach</span>
-                        <span class="service-tag">Skin Care</span>
-                    </div>
-                </div>
-                
-                <!-- Nails -->
-                <div class="interest-option nails" data-interest="nails">
-                    <div class="interest-icon nails">
-                        <i class="fas fa-hand-sparkles"></i>
-                    </div>
-                    <h3>Nail Services</h3>
-                    <p class="option-description">Beautiful nails & care</p>
-                    <div class="option-services">
-                        <span class="service-tag">Manicure</span>
-                        <span class="service-tag">Pedicure</span>
-                        <span class="service-tag">Nail Art</span>
-                        <span class="service-tag">Nail Extensions</span>
-                    </div>
-                </div>
-                
-                <!-- All Services -->
-                <div class="interest-option all" data-interest="all">
-                    <div class="interest-icon all">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h3>All Services</h3>
-                    <p class="option-description">Complete beauty package</p>
-                    <div class="option-services">
-                        <span class="service-tag">Hair + Skin</span>
-                        <span class="service-tag">Nails + Makeup</span>
-                        <span class="service-tag">Bridal</span>
-                        <span class="service-tag">Party</span>
+                    
+                    <!-- All Services -->
+                    <div class="interest-option all" data-interest="all">
+                        <div class="interest-icon all">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3>All Services</h3>
+                        <p class="option-description">Complete beauty package</p>
+                        <div class="option-services">
+                            <span class="service-tag">Hair + Skin</span>
+                            <span class="service-tag">Nails + Makeup</span>
+                            <span class="service-tag">Bridal</span>
+                            <span class="service-tag">Party</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1332,7 +1466,7 @@
             4: "Step 4: Book Appointment"
         };
         
-        // Service Data
+        // Service Data (same as before)
         const servicesData = {
             hair: [
                 {
